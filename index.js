@@ -2,5 +2,7 @@ var UglifyJS = require("uglify-js");
 
 module.exports = function(content) {
     this.cacheable();
-    return UglifyJS.minify(content, {fromString: true}).code;
+    var opts = this.options['uglify-loader'] || {};
+    opts.fromString = true;
+    return UglifyJS.minify(content, opts).code;
 };

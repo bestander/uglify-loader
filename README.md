@@ -23,6 +23,26 @@ module: {
             test: /.*\/app\/.*\.js$/,
             exclude: /.spec.js/, // excluding .spec files
             loader: "uglify"
-        },
+        }
+    ]
 }
+```
+
+You can pass UglifyJS parameters via 'uglify-loader' property of webpack config.
+
+```
+module: {
+    loaders: [
+        {
+            // I want to uglify with mangling only app files, not thirdparty libs
+            test: /.*\/app\/.*\.js$/,
+            exclude: /.spec.js/, // excluding .spec files
+            loader: "uglify"
+        }
+    ]
+},
+'uglify-loader': {
+    mangle: false
+}
+
 ```
