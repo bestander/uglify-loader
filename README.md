@@ -1,6 +1,13 @@
 # uglify-loader
 Uglify loader for webpack
 
+To install
+---
+
+```
+npm install uglify-loader --save-dev
+```
+
 Use Case
 ---
 Webpack has UglifyJSPlugin that uglifies the output after bundling.
