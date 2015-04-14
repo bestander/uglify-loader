@@ -8,13 +8,9 @@ module.exports = function(source, inputSourceMap) {
     }
 
     var opts = this.options['uglify-loader'] || {};
-    opts.inputSourceMap = inputSourceMap;
-    opts.outSourceMap = this.sourceMap ? "out.js.map" : null;
+    //    opts.inSourceMap = inputSourceMap;
+    //    opts.outSourceMap = "out.js.map";
     opts.fromString = true;
-    onResult(null, UglifyJS.minify(content, opts));
-
-    function onResult(err, result){
-        if (err) return callback(err);
-        callback(err, err ? null : result.code, err ? null : result.map);
-    }
+    var result = UglifyJS.minify(source, opts);
+    callback(null, result.code, result.map);
 };
