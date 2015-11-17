@@ -10,7 +10,8 @@ module.exports = function(source, inputSourceMap) {
 
     var opts = this.options['uglify-loader'] || {};
     // just an indicator to generate source maps, the output result.map will be modified anyway
-    opts.outSourceMap = "out.map.js";
+    // tell UglifyJS2 not to emit a name by just setting outSourceMap to true
+    opts.outSourceMap = true;
     opts.fromString = true;
 
     var result = UglifyJS.minify(source, opts);
