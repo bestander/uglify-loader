@@ -1,6 +1,6 @@
 {
   "name": "uglify-loader",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Uglify.js loader for webpack",
   "main": "index.js",
   "scripts": {
