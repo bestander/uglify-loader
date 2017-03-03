@@ -1,6 +1,6 @@
 {
   "name": "uglify-loader",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Uglify.js loader for webpack",
   "main": "index.js",
   "scripts": {
@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/bestander/uglify-loader",
   "dependencies": {
-    "loader-utils": "^0.2.7",
-    "source-map": "^0.5.6",
+    "loader-utils": "^1.0.2",
+    "source-map": "^0.5.6"
+  },
+  "peerDependencies": {
     "uglify-js": "^2.4.16"
   }
 }
