@@ -17,32 +17,34 @@ Example
 ---
 ```
 module: {
-    loaders: [
+    rules: [
         {
             // I want to uglify with mangling only app files, not thirdparty libs
             test: /.*\/app\/.*\.js$/,
             exclude: /.spec.js/, // excluding .spec files
-            loader: "uglify"
+            use: 'uglify-loader'
         }
     ]
 }
 ```
 
-You can pass UglifyJS parameters via 'uglify-loader' property of webpack config.
+You can pass UglifyJS parameters via loader options.
 
 ```
 module: {
-    loaders: [
+    rules: [
         {
             // I want to uglify with mangling only app files, not thirdparty libs
             test: /.*\/app\/.*\.js$/,
             exclude: /.spec.js/, // excluding .spec files
-            loader: "uglify"
+            use: {
+                loader: 'uglify-loader',
+                options: {
+                    mangle: false
+                }
+            }
         }
     ]
-},
-'uglify-loader': {
-    mangle: false
 }
 
 ```
