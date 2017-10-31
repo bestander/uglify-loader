@@ -15,6 +15,7 @@ In the applications that depend on thirdparty libraries you may want to uglify w
 
 Example
 ---
+**Webpack 1**
 ```
 module: {
     loaders: [
@@ -44,5 +45,40 @@ module: {
 'uglify-loader': {
     mangle: false
 }
+```
 
+<br />
+
+**Webpack 2**
+```
+module: {
+    rules: [
+        {
+            // I want to uglify with mangling only app files, not thirdparty libs
+            test: /.*\/app\/.*\.js$/,
+            exclude: /.spec.js/, // excluding .spec files
+            use: 'uglify-loader'
+        }
+    ]
+}
+```
+
+You can pass UglifyJS parameters via loader options.
+
+```
+module: {
+    rules: [
+        {
+            // I want to uglify with mangling only app files, not thirdparty libs
+            test: /.*\/app\/.*\.js$/,
+            exclude: /.spec.js/, // excluding .spec files
+            use: {
+                loader: 'uglify-loader',
+                options: {
+                    mangle: false
+                }
+            }
+        }
+    ]
+}
 ```
