@@ -48,8 +48,7 @@ module.exports = function(source, inputSourceMap) {
     var opts = loaderUtils.getOptions(this) || {};
     // just an indicator to generate source maps, the output result.map will be modified anyway
     // tell UglifyJS2 not to emit a name by just setting outSourceMap to true
-    opts.outSourceMap = true;
-    opts.fromString = true;
+    opts.sourceMap = true;
 
     var result = UglifyJS.minify(source, opts);
     var sourceMap = JSON.parse(result.map);
